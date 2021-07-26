@@ -1,4 +1,4 @@
-import pandas as pd
-import pickle
-import xgboost
-import streamlit as st
+matplotlib==3.4.1
+numpy==1.20.2
+pandas==1.2.3
+streamlit==0.79.0
