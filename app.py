@@ -10,12 +10,12 @@ regression = pickle.load(pickle_in)
 
 def predict_ARR(Idade, Sexo, tipo, Dias, EDSS, tx_ant, Surtos_base, RAM, farmaco):
 
-       Fármaco_AG = 0
-       Fármaco_DMF = 0
-       Fármaco_Fingolimod = 0
-       Fármaco_Interferão = 0
-       Fármaco_Peginterferão = 0
-       Fármaco_Teriflunomida = 0
+       Farmaco_AG = 0
+       Farmaco_DMF = 0
+       Farmaco_Fingolimod = 0
+       Farmaco_Interferao = 0
+       Farmaco_Peginterferao = 0
+       Farmaco_Teriflunomida = 0
        Tipo_EM_EMPP = 0
        Tipo_EM_EMSP = 0
        Tipo_EM_EMSR = 0
@@ -36,24 +36,24 @@ def predict_ARR(Idade, Sexo, tipo, Dias, EDSS, tx_ant, Surtos_base, RAM, farmaco
               Tipo_EM_EMPP = 1
        
        if farmaco == "Fingolimod":
-              Fármaco_Fingolimod = 1
+              Farmaco_Fingolimod = 1
        elif farmaco == "Interferão":
-              Fármaco_Interferão = 1
+              Farmaco_Interferao = 1
        elif farmaco == "Teriflunomida":
-              Fármaco_Teriflunomida = 1
+              Farmaco_Teriflunomida = 1
        elif farmaco == "Fumarato de Dimetilo":
-              Fármaco_DMF = 1
+              Farmaco_DMF = 1
        elif farmaco == "Acetato de Glatirâmero":
-              Fármaco_AG = 1
+              Farmaco_AG = 1
        else:
-              Fármaco_Peginterferão = 1
+              Farmaco_Peginterferao = 1
 
        if RAM == "Sim":
               RAM = 1
        
-       df = pd.DataFrame({"Idade" : Idade, "Dias" : Dias, "EDSS" : EDSS, "tx_ant" : tx_ant, "Surtos_base" : Surtos_base, "RAM" : RAM, "Fármaco_AG" : Fármaco_AG,
-       "Fármaco_DMF" : Fármaco_DMF, "Fármaco_Fingolimod" : Fármaco_Fingolimod, "Fármaco_Interferão" : Fármaco_Interferão,
-       "Fármaco_Peginterferão" : Fármaco_Peginterferão, "Fármaco_Teriflunomida" : Fármaco_Teriflunomida, "Tipo_EM_EMPP" : Tipo_EM_EMPP,
+       df = pd.DataFrame({"Idade" : Idade, "Dias" : Dias, "EDSS" : EDSS, "tx_ant" : tx_ant, "Surtos_base" : Surtos_base, "RAM" : RAM, "Farmaco_AG" : Farmaco_AG,
+       "Farmaco_DMF" : Farmaco_DMF, "Farmaco_Fingolimod" : Farmaco_Fingolimod, "Farmaco_Interferao" : Farmaco_Interferao,
+       "Farmaco_Peginterferao" : Farmaco_Peginterferao, "Farmaco_Teriflunomida" : Farmaco_Teriflunomida, "Tipo_EM_EMPP" : Tipo_EM_EMPP,
        "Tipo_EM_EMSP" : Tipo_EM_EMSP, "Tipo_EM_EMSR" : Tipo_EM_EMSR, "Sexo_F" : Sexo_F, "Sexo_M" : Sexo_M}, index=[0])
 
        prediction = regression.predict(df)
